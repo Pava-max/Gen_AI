@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>Orders</title></head>
+<body>
+<h2>Order History</h2>
+<ul>
+{% for order in orders %}
+    <li>
+        Order #{{ order.id }} - {{ order.customer_name }} (${{ order.total }})
+        <ul>
+            {% for item in order.items %}
+                <li>{{ item.product.name }} - ${{ item.product.price }}</li>
+            {% endfor %}
+        </ul>
+    </li>
+{% endfor %}
+</ul>
+<a href="/">Back to Home</a>
+</body>
+</html>

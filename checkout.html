@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout | AI Marketplace</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav>
+    <a href="/">Home</a>
+    <a href="/cart">Cart</a>
+</nav>
+
+<h2>Checkout</h2>
+<div class="checkout-items">
+    {% for product in products %}
+        <p>{{ product.name }} - ${{ product.price }}</p>
+    {% endfor %}
+</div>
+<h3>Total: ${{ total }}</h3>
+
+<form method="POST" class="checkout-form">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <button type="submit" class="btn">Pay with Card</button>
+</form>
+<a href="/cart" class="btn" style="background-color:#7f8c8d;">Back to Cart</a>
+
+</body>
+</html>

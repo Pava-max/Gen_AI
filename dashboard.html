@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | AI Marketplace</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav>
+    <a href="/">Home</a>
+    <a href="/logout">Logout</a>
+</nav>
+
+<h2>Welcome, {{ current_user.username }}</h2>
+<a href="/add" class="btn">Add New Product</a>
+<a href="/artisan_orders" class="btn" style="background-color:#1abc9c;">View Orders</a>
+
+<div class="product-grid">
+    {% for product in products %}
+    <div class="product-card">
+        {% if product.image %}
+            <img src="{{ url_for('static', filename='uploads/' ~ product.image) }}" alt="{{ product.name }}">
+        {% endif %}
+        <h3>{{ product.name }}</h3>
+        <p>${{ product.price }}</p>
+        <a href="/edit/{{ product.id }}" class="btn">Edit</a>
+        <form action="/delete/{{ product.id }}" method="POST">
+            <button type="submit" class="btn" style="background-color:#e74c3c;">Delete</button>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

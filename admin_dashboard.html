@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>Admin Dashboard</title></head>
+<body>
+<h2>Admin Dashboard</h2>
+<p>Total Revenue: ${{ total_revenue }}</p>
+<p>Total Orders: {{ total_orders }}</p>
+
+<h3>Top Selling Products</h3>
+<ul>
+{% for product, sold in top_products %}
+    <li>{{ product }} - Sold: {{ sold }}</li>
+{% endfor %}
+</ul>
+<a href="/">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Response</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Your Question:</h2>
+    <p>{{ question }}</p>
+
+    <h2>AI Assistant Answer:</h2>
+    <p>{{ answer }}</p>
+
+    <a href="/">Back to Home</a>
+</body>
+</html>

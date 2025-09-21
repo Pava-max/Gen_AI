@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>My Orders</title></head>
+<body>
+<h2>Orders for My Products</h2>
+<ul>
+{% for item in items %}
+    <li>{{ item.product.name }} sold to {{ item.order.customer_name }} ({{ item.order.customer_email }})</li>
+{% endfor %}
+</ul>
+<a href="/dashboard">Back to Dashboard</a>
+</body>
+</html>
